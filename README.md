@@ -1,4 +1,4 @@
-# XaCubeLife VoxelGame Prototype
+# XaCubeLife VoxelGame Prototype for Godot v4.5
 
 ## Controls:
 
