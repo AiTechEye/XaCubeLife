@@ -1,0 +1,249 @@
+[gd_scene load_steps=10 format=3 uid="uid://cqa8lfykiqb7i"]
+
+[ext_resource type="Script" uid="uid://n7i4sbyp53c8" path="res://engine/mainmenu.gd" id="1_8883d"]
+[ext_resource type="Texture2D" uid="uid://16fvxgbe7840" path="res://res/textures/grass_dirt.png" id="1_i1coa"]
+[ext_resource type="Texture2D" uid="uid://0i7tbv2u3dvo" path="res://res/textures/dirt.png" id="2_8883d"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_j4v3r"]
+bg_color = Color(0.15170373, 0.15170373, 0.15170373, 0.8)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_i1coa"]
+bg_color = Color(0.15294118, 0.15294118, 0.15294118, 0.8)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5rtoo"]
+bg_color = Color(0.15294118, 0.15294118, 0.15294118, 0.8)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8883d"]
+bg_color = Color(1, 0.15170373, 0.15170373, 0.8)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4h8xo"]
+bg_color = Color(0.76608396, 0, 0.055867605, 0.8)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3t6cp"]
+bg_color = Color(0, 0, 0, 0.19900002)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 0, 0, 1)
+
+[node name="mainmenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_8883d")
+
+[node name="back" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_lock_ = true
+metadata/_edit_group_ = true
+
+[node name="grass" type="TextureRect" parent="back"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -864.0
+offset_bottom = -632.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(4, 4)
+texture = ExtResource("1_i1coa")
+expand_mode = 1
+stretch_mode = 1
+
+[node name="dirt" type="TextureRect" parent="back"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 64.0
+offset_right = -864.0
+offset_bottom = -438.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(4, 4)
+texture = ExtResource("2_8883d")
+expand_mode = 1
+stretch_mode = 1
+
+[node name="saves" type="ItemList" parent="."]
+layout_mode = 1
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_left = 320.0
+offset_top = 320.0
+offset_right = 832.0
+offset_bottom = -136.0
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_styles/panel = SubResource("StyleBoxFlat_j4v3r")
+allow_reselect = true
+allow_rmb_select = true
+text_overrun_behavior = 1
+fixed_icon_size = Vector2i(20, 20)
+
+[node name="new" type="Button" parent="."]
+layout_mode = 0
+offset_left = 640.0
+offset_top = 224.0
+offset_right = 768.0
+offset_bottom = 288.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = SubResource("StyleBoxFlat_i1coa")
+text = "New Game"
+
+[node name="user" type="Button" parent="."]
+layout_mode = 0
+offset_left = 1016.0
+offset_top = 576.0
+offset_right = 1144.0
+offset_bottom = 640.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = SubResource("StyleBoxFlat_i1coa")
+text = "User DIr
+"
+
+[node name="play" type="Button" parent="."]
+layout_mode = 0
+offset_left = 384.0
+offset_top = 224.0
+offset_right = 512.0
+offset_bottom = 288.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = SubResource("StyleBoxFlat_i1coa")
+text = "Play"
+
+[node name="newname" type="LineEdit" parent="."]
+layout_mode = 0
+offset_left = 640.0
+offset_top = 224.0
+offset_right = 768.0
+offset_bottom = 288.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_styles/normal = SubResource("StyleBoxFlat_5rtoo")
+placeholder_text = "Game Name"
+alignment = 1
+
+[node name="cancel_new" type="Button" parent="."]
+layout_mode = 0
+offset_left = 640.0
+offset_top = 152.0
+offset_right = 768.0
+offset_bottom = 216.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = SubResource("StyleBoxFlat_i1coa")
+text = "Cancel"
+
+[node name="remove" type="Button" parent="."]
+layout_mode = 0
+offset_left = 504.0
+offset_top = 520.0
+offset_right = 650.0
+offset_bottom = 576.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = SubResource("StyleBoxFlat_8883d")
+theme_override_styles/hover = SubResource("StyleBoxFlat_4h8xo")
+text = "Move to Trash"
+
+[node name="remove2" type="Button" parent="."]
+layout_mode = 0
+offset_left = 496.0
+offset_top = 584.0
+offset_right = 656.0
+offset_bottom = 640.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = SubResource("StyleBoxFlat_8883d")
+theme_override_styles/hover = SubResource("StyleBoxFlat_4h8xo")
+text = "Move to Trash?"
+
+[node name="createsave" type="Button" parent="."]
+layout_mode = 0
+offset_left = 784.0
+offset_top = 224.0
+offset_right = 912.0
+offset_bottom = 288.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = SubResource("StyleBoxFlat_i1coa")
+text = "Create"
+
+[node name="mapgen" type="ItemList" parent="."]
+clip_contents = false
+layout_mode = 0
+offset_left = 840.0
+offset_top = 344.0
+offset_right = 992.0
+offset_bottom = 440.0
+
+[node name="labelmapgen" type="Label" parent="mapgen"]
+layout_mode = 0
+offset_top = -24.0
+offset_right = 152.0
+text = "Map Terrain"
+horizontal_alignment = 1
+
+[node name="mapseed" type="Panel" parent="."]
+layout_mode = 0
+offset_left = 840.0
+offset_top = 440.0
+offset_right = 992.0
+offset_bottom = 512.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_3t6cp")
+
+[node name="label" type="Label" parent="mapseed"]
+layout_mode = 0
+offset_left = 8.0
+offset_right = 144.0
+offset_bottom = 24.0
+text = "Map Seed"
+horizontal_alignment = 1
+
+[node name="value" type="Label" parent="mapseed"]
+layout_mode = 0
+offset_top = 48.0
+offset_right = 152.0
+offset_bottom = 72.0
+text = "00000000"
+horizontal_alignment = 1
+
+[node name="seed" type="HSlider" parent="mapseed"]
+layout_mode = 0
+offset_top = 24.0
+offset_right = 152.0
+offset_bottom = 48.0
+min_value = 1.0
+max_value = 10000.0
+value = 1.0
+rounded = true
+allow_greater = true

@@ -1,0 +1,284 @@
+[gd_scene load_steps=12 format=3 uid="uid://cn1pn2tul678w"]
+
+[ext_resource type="Script" uid="uid://b0wply0o0kkdm" path="res://engine/contenteditor.gd" id="1_j1kbo"]
+[ext_resource type="Script" uid="uid://cyw3cvqr6ulge" path="res://engine/nodeextractor.gd" id="2_6qwvt"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cmeu0"]
+bg_color = Color(0.15170373, 0.15170373, 0.15170373, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6qwvt"]
+bg_color = Color(0.2123048, 0.21230489, 0.21230471, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_j1kbo"]
+bg_color = Color(0, 0.6651851, 1, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_i78my"]
+bg_color = Color(1, 0.4334807, 0.04835727, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_m4ggq"]
+bg_color = Color(0, 0.6059047, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ypsv0"]
+bg_color = Color(0, 0.6651851, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_octmm"]
+bg_color = Color(1, 0, 0.050708726, 1)
+
+[sub_resource type="Gradient" id="Gradient_6qwvt"]
+offsets = PackedFloat32Array(0)
+colors = PackedColorArray(0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_m4ggq"]
+gradient = SubResource("Gradient_6qwvt")
+width = 1
+height = 1
+
+[node name="contenteditor" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_j1kbo")
+metadata/_edit_lock_ = true
+
+[node name="objects" type="ItemList" parent="."]
+layout_mode = 1
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_right = 192.0
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_styles/panel = SubResource("StyleBoxFlat_cmeu0")
+allow_reselect = true
+allow_rmb_select = true
+text_overrun_behavior = 1
+fixed_icon_size = Vector2i(20, 20)
+
+[node name="scrollbar" type="VScrollBar" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.35416666
+anchor_right = 0.375
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+max_value = 1719.000030517578
+step = 1.0
+page = 804.0
+metadata/_edit_use_anchors_ = true
+
+[node name="list" type="ItemList" parent="."]
+visible = false
+layout_mode = 0
+offset_left = -528.0
+offset_top = 64.0
+offset_right = -208.0
+offset_bottom = 400.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 20
+theme_override_styles/panel = SubResource("StyleBoxFlat_6qwvt")
+fixed_icon_size = Vector2i(30, 30)
+metadata/_edit_lock_ = true
+
+[node name="properties" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.16666667
+anchor_right = 0.35416666
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="type" type="Control" parent="properties"]
+anchors_preset = 0
+offset_top = 2.746582e-05
+offset_right = 216.0
+offset_bottom = 2.746582e-05
+
+[node name="node" type="Button" parent="properties"]
+layout_mode = 0
+offset_top = 120.0
+offset_right = 216.0
+offset_bottom = 143.00003
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_styles/normal = SubResource("StyleBoxFlat_j1kbo")
+text = "Update Node
+"
+
+[node name="chunks" type="Button" parent="properties"]
+layout_mode = 0
+offset_left = 264.0
+offset_top = 88.0
+offset_right = 383.0
+offset_bottom = 111.00003
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_styles/normal = SubResource("StyleBoxFlat_i78my")
+text = "Update Chunks
+"
+
+[node name="mapgen_scatter" type="Button" parent="properties"]
+layout_mode = 0
+offset_top = 120.0
+offset_right = 216.0
+offset_bottom = 143.00003
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_styles/normal = SubResource("StyleBoxFlat_j1kbo")
+text = "Update Scatter
+"
+
+[node name="get_item" type="Button" parent="properties"]
+layout_mode = 0
+offset_left = 264.0
+offset_top = 120.0
+offset_right = 352.0
+offset_bottom = 143.00003
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_styles/normal = SubResource("StyleBoxFlat_m4ggq")
+text = "Get Item
+"
+
+[node name="get_node" type="Button" parent="properties"]
+layout_mode = 0
+offset_left = 264.0
+offset_top = 120.0
+offset_right = 352.0
+offset_bottom = 143.00003
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_styles/normal = SubResource("StyleBoxFlat_m4ggq")
+text = "Get Node
+"
+
+[node name="mapgen_scatter_save" type="Button" parent="properties"]
+layout_mode = 0
+offset_left = 264.0
+offset_top = 120.0
+offset_right = 352.0
+offset_bottom = 143.00003
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_styles/normal = SubResource("StyleBoxFlat_m4ggq")
+text = "Save
+"
+
+[node name="save_item" type="Button" parent="properties"]
+layout_mode = 0
+offset_left = 264.0
+offset_top = 152.0
+offset_right = 352.0
+offset_bottom = 175.00003
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_styles/normal = SubResource("StyleBoxFlat_j1kbo")
+text = "Save
+"
+
+[node name="save_node" type="Button" parent="properties"]
+layout_mode = 0
+offset_left = 264.0
+offset_top = 152.0
+offset_right = 352.0
+offset_bottom = 175.00003
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_styles/normal = SubResource("StyleBoxFlat_j1kbo")
+text = "Save
+"
+
+[node name="item" type="Button" parent="properties"]
+layout_mode = 0
+offset_top = 120.000206
+offset_right = 208.0
+offset_bottom = 143.00024
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_styles/normal = SubResource("StyleBoxFlat_j1kbo")
+text = "Update Item
+"
+
+[node name="object" type="Button" parent="properties"]
+layout_mode = 0
+offset_top = 120.000206
+offset_right = 216.0
+offset_bottom = 143.00024
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_styles/normal = SubResource("StyleBoxFlat_j1kbo")
+text = "Update Object
+"
+
+[node name="nodeextractor_set" type="Button" parent="properties"]
+layout_mode = 0
+offset_left = 264.0
+offset_top = 120.0
+offset_right = 344.0
+offset_bottom = 143.00003
+tooltip_text = "Point a node and press to place the building"
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_styles/normal = SubResource("StyleBoxFlat_ypsv0")
+text = "Place
+"
+
+[node name="nodeextractor_save" type="Button" parent="properties"]
+layout_mode = 0
+offset_left = 264.0
+offset_top = 144.0
+offset_right = 344.0
+offset_bottom = 167.00003
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_styles/normal = SubResource("StyleBoxFlat_i78my")
+text = "Save"
+
+[node name="nodeextractor" type="Button" parent="properties"]
+layout_mode = 0
+offset_top = 120.0
+offset_right = 216.0
+offset_bottom = 143.00003
+tooltip_text = "Point a node and press"
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_styles/normal = SubResource("StyleBoxFlat_j1kbo")
+text = "Mark
+"
+script = ExtResource("2_6qwvt")
+
+[node name="nodeextractor_clear" type="Button" parent="properties"]
+layout_mode = 0
+offset_left = 264.0
+offset_top = 96.0
+offset_right = 344.0
+offset_bottom = 119.00003
+tooltip_text = "Clear mark"
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_styles/normal = SubResource("StyleBoxFlat_octmm")
+text = "Clear"
+
+[node name="mapgen_scatter_map" type="TextureRect" parent="."]
+visible = false
+texture_filter = 1
+texture_repeat = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 824.0
+offset_top = 320.0
+offset_right = 928.0
+offset_bottom = -8.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("GradientTexture2D_m4ggq")
+stretch_mode = 4
+
+[node name="code" type="CodeEdit" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 712.0
+offset_right = 1152.0
+offset_bottom = 368.0
+
+[node name="togglecode" type="Button" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 1128.0
+offset_right = 1151.0
+offset_bottom = 23.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_styles/normal = SubResource("StyleBoxFlat_i78my")
+text = "[  ]"

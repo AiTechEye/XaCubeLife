@@ -1,0 +1,408 @@
+[gd_scene load_steps=25 format=4 uid="uid://dmchpxcs8lvpw"]
+
+[ext_resource type="Script" uid="uid://dbt58caeuspsf" path="res://game/player/player.gd" id="1"]
+[ext_resource type="Texture2D" uid="uid://7qs8k4g8wlsy" path="res://res/textures/core/crack_anim.png" id="2_b2mth"]
+[ext_resource type="Environment" uid="uid://hl5s74qt2p3h" path="res://game/BlueSkyEnvironment.tres" id="3_4ste8"]
+[ext_resource type="Texture2D" uid="uid://co2jxgxbo0k76" path="res://res/textures/crosshair.png" id="3_5fytw"]
+[ext_resource type="Texture2D" uid="uid://ds0di4sssfo0a" path="res://res/textures/hotbar_slot.png" id="4_4ste8"]
+[ext_resource type="Texture2D" uid="uid://c678n8xwvjtik" path="res://res/textures/hotbar_select.png" id="5_anr75"]
+[ext_resource type="PackedScene" uid="uid://cn1pn2tul678w" path="res://engine/contenteditor.tscn" id="7_anr75"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_obar5"]
+size = Vector3(1.01, 1.01, 1.01)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_b2mth"]
+transparency = 1
+shading_mode = 0
+albedo_color = Color(1, 0, 1, 0.2509804)
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_b2mth"]
+_surfaces = [{
+"aabb": AABB(-0.5, -0.5, -0.5, 1, 1, 1),
+"attribute_data": PackedByteArray("AAAAAAAAAAAAAIA/AAAAAAAAAAAAAIA/AAAAAAAAgD8AAIA/AAAAAAAAgD8AAIA/AAAAAAAAgD8AAIA/AAAAAAAAAAAAAAAAAACAPwAAgD8AAIA/AAAAAAAAAAAAAIA/AAAAAAAAgD8AAIA/AAAAAAAAAAAAAAAAAACAPwAAgD8AAIA/AAAAAAAAAAAAAIA/AAAAAAAAAAAAAIA/AAAAAAAAAAAAAIA/AAAAAAAAgD8AAIA/AAAAAAAAgD8AAIA/AAAAAAAAgD8AAIA/AAAAAAAAAAAAAAAAAACAPwAAgD8AAIA/AAAAAAAAAAAAAIA/AAAAAAAAAAAAAIA/AAAAAAAAAAAAAIA/AAAAAAAAgD8AAIA/AAAAAAAAgD8AAIA/"),
+"format": 34359738385,
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 36,
+"vertex_data": PackedByteArray("AAAAvwAAAD8AAAC/AAAAPwAAAD8AAAC/AAAAvwAAAD8AAAA/AAAAvwAAAD8AAAA/AAAAPwAAAD8AAAC/AAAAPwAAAD8AAAA/AAAAvwAAAL8AAAA/AAAAPwAAAL8AAAC/AAAAvwAAAL8AAAC/AAAAPwAAAL8AAAA/AAAAPwAAAL8AAAC/AAAAvwAAAL8AAAA/AAAAPwAAAL8AAAC/AAAAPwAAAD8AAAA/AAAAPwAAAD8AAAC/AAAAPwAAAL8AAAA/AAAAPwAAAD8AAAA/AAAAPwAAAL8AAAC/AAAAvwAAAD8AAAC/AAAAvwAAAD8AAAA/AAAAvwAAAL8AAAC/AAAAvwAAAL8AAAC/AAAAvwAAAD8AAAA/AAAAvwAAAL8AAAA/AAAAPwAAAL8AAAA/AAAAvwAAAD8AAAA/AAAAPwAAAD8AAAA/AAAAvwAAAL8AAAA/AAAAvwAAAD8AAAA/AAAAPwAAAL8AAAA/AAAAPwAAAD8AAAC/AAAAvwAAAD8AAAC/AAAAPwAAAL8AAAC/AAAAPwAAAL8AAAC/AAAAvwAAAD8AAAC/AAAAvwAAAL8AAAC/")
+}]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_a4w0n"]
+transparency = 2
+alpha_scissor_threshold = 0.5
+alpha_antialiasing_mode = 0
+albedo_texture = ExtResource("2_b2mth")
+uv1_scale = Vector3(1, 0.2, 1)
+texture_filter = 0
+
+[sub_resource type="BoxMesh" id="1"]
+size = Vector3(0.5, 1, 0.5)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_obar5"]
+albedo_color = Color(1, 0, 0, 1)
+
+[sub_resource type="BoxShape3D" id="3"]
+size = Vector3(0.5, 1, 0.5)
+
+[sub_resource type="Animation" id="Animation_b2mth"]
+resource_name = "jump"
+length = 0.1
+step = 0.1
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("hand:position:y")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(2, 0),
+"points": PackedFloat32Array(0, -0.025, 0, 0.025, 0, 0.1, -0.008333333, -0.016666668, 0, 0),
+"times": PackedFloat32Array(0, 0.1)
+}
+
+[sub_resource type="Animation" id="4"]
+length = 0.6
+step = 0.01
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("hand:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.4, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 0, -0.291107), Vector3(0, -0.211775, -0.445232), Vector3(0, -0.372039, -0.250472), Vector3(0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("hand:rotation_degrees")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 90, -45), Vector3(0, 90, -135), Vector3(0, 90, -45)]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../../..")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.2),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"digging_sound"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_a4w0n"]
+resource_name = "stand"
+length = 0.1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("hand:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_4ste8"]
+resource_name = "walk"
+length = 0.8
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("hand:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0.05, 0, 0), Vector3(0, 0.05, 0), Vector3(-0.05, 0, 0), Vector3(0, 0.05, 0), Vector3(0.05, 0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_obar5"]
+_data = {
+&"jump": SubResource("Animation_b2mth"),
+&"pick": SubResource("4"),
+&"stand": SubResource("Animation_a4w0n"),
+&"walk": SubResource("Animation_4ste8")
+}
+
+[sub_resource type="Animation" id="Animation_8soms"]
+resource_name = "jump"
+length = 0.1
+step = 0.1
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("hand:position:y")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(2, 0),
+"points": PackedFloat32Array(0, -0.025, 0, 0.025, 0, 0.1, -0.008333333, -0.016666668, 0, 0),
+"times": PackedFloat32Array(0, 0.049999997)
+}
+
+[sub_resource type="Animation" id="5"]
+length = 0.6
+step = 0.01
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("hand:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.4, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 0, -0.291107), Vector3(0, -0.211775, -0.445232), Vector3(0, -0.372039, -0.250472), Vector3(0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("hand:rotation_degrees")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 90, -45), Vector3(0, 90, -135), Vector3(0, 90, -45)]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../../..")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.19),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"digging_sound"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_epvkq"]
+resource_name = "stand"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("hand:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_anr75"]
+resource_name = "walk"
+length = 0.8
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../left/hand:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0.05, 0, 0), Vector3(0, 0.05, 0), Vector3(-0.05, 0, 0), Vector3(0, 0.05, 0), Vector3(0.05, 0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_b2mth"]
+_data = {
+&"jump": SubResource("Animation_8soms"),
+&"pick": SubResource("5"),
+&"stand": SubResource("Animation_epvkq"),
+&"walk": SubResource("Animation_anr75")
+}
+
+[node name="player" type="CharacterBody3D"]
+process_mode = 1
+script = ExtResource("1")
+
+[node name="marker" type="Node" parent="."]
+
+[node name="marker" type="MeshInstance3D" parent="marker"]
+visible = false
+mesh = SubResource("BoxMesh_obar5")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_b2mth")
+
+[node name="crack" type="MeshInstance3D" parent="marker"]
+transform = Transform3D(1.011, 0, 0, 0, 1.011, 0, 0, 0, 1.011, 0, 0, 0)
+visible = false
+mesh = SubResource("ArrayMesh_b2mth")
+surface_material_override/0 = SubResource("StandardMaterial3D_a4w0n")
+
+[node name="mesh" type="MeshInstance3D" parent="."]
+mesh = SubResource("1")
+surface_material_override/0 = SubResource("StandardMaterial3D_obar5")
+
+[node name="Collision" type="CollisionShape3D" parent="."]
+shape = SubResource("3")
+debug_color = Color(0, 0.6, 0.7, 0.42)
+
+[node name="head" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.49, 0)
+
+[node name="camera" type="Camera3D" parent="head"]
+cull_mask = 524289
+environment = ExtResource("3_4ste8")
+current = true
+
+[node name="ray" type="RayCast3D" parent="head/camera"]
+visible = false
+target_position = Vector3(0, 0, -4)
+
+[node name="right" type="Node3D" parent="head/camera"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.35, -0.1, -0.25)
+
+[node name="anim" type="AnimationPlayer" parent="head/camera/right"]
+libraries = {
+&"": SubResource("AnimationLibrary_obar5")
+}
+
+[node name="hand" type="Node3D" parent="head/camera/right"]
+transform = Transform3D(-3.0908627e-08, -3.0908627e-08, 1, -0.70710695, 0.70710695, 0, -0.70710695, -0.70710695, -4.371139e-08, 0, 0, 0)
+
+[node name="item" type="MeshInstance3D" parent="head/camera/right/hand"]
+transform = Transform3D(0.1999997, 0, 0, 0, 0.1999997, 0, 0, 0, 0.19999988, 0, 0, 0)
+layers = 524288
+
+[node name="left" type="Node3D" parent="head/camera"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.35, -0.1, -0.25)
+
+[node name="anim" type="AnimationPlayer" parent="head/camera/left"]
+libraries = {
+&"": SubResource("AnimationLibrary_b2mth")
+}
+
+[node name="hand" type="Node3D" parent="head/camera/left"]
+transform = Transform3D(-3.0908627e-08, -3.0908627e-08, 1, -0.70710695, 0.70710695, 0, -0.70710695, -0.70710695, -4.371139e-08, 0, 0, 0)
+
+[node name="item" type="MeshInstance3D" parent="head/camera/left/hand"]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0, 0)
+layers = 524288
+
+[node name="ui" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_lock_ = true
+
+[node name="node_info" type="Label" parent="ui"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.8263889
+anchor_right = 0.9930556
+anchor_bottom = 0.19753087
+grow_horizontal = 0
+theme_override_constants/outline_size = 50
+theme_override_font_sizes/font_size = 20
+horizontal_alignment = 2
+
+[node name="player_info" type="Label" parent="ui"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.8263889
+anchor_top = 0.2962963
+anchor_right = 0.9930556
+anchor_bottom = 0.49382716
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 1, 0.11207495, 1)
+theme_override_constants/outline_size = 50
+theme_override_font_sizes/font_size = 20
+horizontal_alignment = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="crosshair" type="TextureRect" parent="ui"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_5fytw")
+stretch_mode = 3
+metadata/_edit_lock_ = true
+
+[node name="hotbar" type="TextureRect" parent="ui"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -352.0
+offset_top = -78.0
+offset_right = -274.0
+grow_horizontal = 2
+grow_vertical = 0
+texture = ExtResource("4_4ste8")
+expand_mode = 1
+stretch_mode = 1
+
+[node name="items" type="Control" parent="ui/hotbar"]
+layout_mode = 1
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="slotr" type="TextureRect" parent="ui/hotbar"]
+layout_mode = 1
+offset_right = 78.0
+offset_bottom = 78.0
+texture = ExtResource("5_anr75")
+stretch_mode = 2
+
+[node name="slotl" type="TextureRect" parent="ui/hotbar"]
+layout_mode = 1
+offset_right = 78.0
+offset_bottom = 78.0
+texture = ExtResource("5_anr75")
+stretch_mode = 2
+
+[node name="gui" type="Control" parent="ui"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="contenteditor" parent="." instance=ExtResource("7_anr75")]
+visible = false
