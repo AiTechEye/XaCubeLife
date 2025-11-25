@@ -14,10 +14,10 @@ var settings = {
 		"current_mapgen":"lakes",
 		#"current_mapgen":"test",
 		"inventory_3D_images":true,
-		"ganerate_chunk_range":2,
+		"ganerate_chunk_range":6,
 		"save_timeout":5,
 		"unload_chunk_distance":20,
-		"item_drop_timeout":10,#300
+		"item_drop_timeout":300,
 		"base_size":16,
 	}
 	
